@@ -1,0 +1,1 @@
+web: gunicorn app.planner_app:app

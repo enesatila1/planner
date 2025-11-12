@@ -64,10 +64,13 @@ def chat_with_planner(messages, api_key):
     try:
         url = "https://openrouter.ai/api/v1/chat/completions"
 
+        # Site URL'sini environment'dan al veya default kullan
+        site_url = os.environ.get('SITE_URL', 'http://localhost:5000')
+
         headers = {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost:5000",
+            "HTTP-Referer": site_url,
             "X-Title": "Weekly Planner AI"
         }
 
@@ -130,5 +133,8 @@ def reset():
 if __name__ == '__main__':
     # templates klasörünü oluştur
     os.makedirs('templates', exist_ok=True)
-    # 0.0.0.0 ile tüm network interface'lerden erişime izin ver
-    app.run(debug=True, host='0.0.0.0', port=5001, threaded=True)
+    # Production için port ayarı
+    port = int(os.environ.get('PORT', 5001))
+    # Debug modunu environment'a göre ayarla
+    debug_mode = os.environ.get('FLASK_ENV') != 'production'
+    app.run(debug=debug_mode, host='0.0.0.0', port=port, threaded=True)

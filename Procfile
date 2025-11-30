@@ -1,1 +1,1 @@
-web: gunicorn app.planner_app:app
+web: gunicorn app.app:app

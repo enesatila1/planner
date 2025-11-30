@@ -7,7 +7,7 @@ Aşağıdaki dosyalar deployment için oluşturuldu:
 - ✅ `runtime.txt` - Python versiyonu
 - ✅ `render.yaml` - Render konfigürasyonu
 - ✅ `requirements.txt` - Gunicorn eklendi
-- ✅ `app/planner_app.py` - Production optimizasyonları yapıldı
+- ✅ `app/app.py` - Production optimizasyonları yapıldı
 
 ---
 
@@ -42,7 +42,7 @@ Render otomatik olarak ayarları algılayacak, şunları kontrol et:
 - **Name**: `planner-app` (veya istediğin isim)
 - **Environment**: `Python 3`
 - **Build Command**: `pip install -r requirements.txt`
-- **Start Command**: `gunicorn app.planner_app:app`
+- **Start Command**: `gunicorn app.app:app`
 - **Plan**: `Free` seçili olsun
 
 ### Adım 5: Environment Variables (Opsiyonel)

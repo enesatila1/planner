@@ -42,7 +42,7 @@ pip install Flask requests
 
 2. Uygulamayı başlatın:
 ```bash
-python planner_app.py
+python app.py
 ```
 
 3. Tarayıcınızda açın:
